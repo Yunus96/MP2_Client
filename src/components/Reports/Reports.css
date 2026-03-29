@@ -1,0 +1,142 @@
+/* src/components/Reports.css */
+
+/* ── Page layout ── */
+.reports {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Summary stat cards ── */
+.reports__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.report-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.report-stat__label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-ghost);
+  margin-bottom: 6px;
+}
+
+.report-stat__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.report-stat__sub {
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+/* ── Charts grid ── */
+.reports__charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.reports__charts--full {
+  grid-column: 1 / -1;
+}
+
+/* ── Chart card ── */
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.chart-card__header {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.chart-card__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.chart-card__sub {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.chart-card__body {
+  padding: 16px 8px 8px;
+}
+
+/* ── Loading / error ── */
+.reports__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 80px 20px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.reports__spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.reports__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  font-size: 13px;
+  color: var(--red);
+}
+
+/* ── Custom legend ── */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 8px 20px 16px;
+}
+
+.chart-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.chart-legend__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
