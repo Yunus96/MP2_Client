@@ -9,6 +9,7 @@ import StatusPanel    from "./components/StatusPanel";
 import LeadManagement from "./components/LeadManagement";
 import LeadList       from "./components/LeadList/LeadList";
 import NotFound       from "./components/NotFound/NotFound";
+import AgentList      from "./components/AgentList/AgentList";
 
 function Placeholder({ label }) {
   return (
@@ -51,7 +52,7 @@ export default function App() {
 
             {/* Other nav stubs */}
             <Route path="/sales"    element={<Placeholder label="Sales" />} />
-            <Route path="/agents"   element={<Placeholder label="Agents" />} />
+            <Route path="/agents"   element={<AgentList />} />
             <Route path="/reports"  element={<Placeholder label="Reports" />} />
             <Route path="/settings" element={<Placeholder label="Settings" />} />
 

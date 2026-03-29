@@ -6,6 +6,7 @@ export function useAgents() {
   const [agents, setAgents]       = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError]         = useState(null);
+  const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -26,5 +27,11 @@ export function useAgents() {
     return () => { cancelled = true; };
   }, []);
 
-  return { agents, isLoading, error };
+  // Called by AddAgentModal after successful POST
+  function addAgent(newAgent) {
+    setAgents((prev) => [newAgent, ...prev]);
+    setShowAddModal(false);
+  }
+
+  return { agents, isLoading, error, showAddModal, setShowAddModal, addAgent };
 }
