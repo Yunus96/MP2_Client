@@ -1,0 +1,118 @@
+/* src/components/LeadsSection.css */
+
+.leads-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.leads-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.leads-section__empty {
+  text-align: center;
+  padding: 32px;
+  color: var(--ink-muted);
+  font-size: 13px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+/* Filters row */
+.filters-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filters-row__label {
+  font-size: 11px;
+  color: var(--ink-ghost);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  margin-right: 2px;
+}
+
+.filters-row__spacer { flex: 1; }
+
+/* Filter chip buttons */
+.filter-btn {
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.12s;
+}
+
+.filter-btn:hover {
+  background: var(--border-light);
+  color: var(--ink-soft);
+}
+
+.filter-btn--active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* Add Lead button */
+.add-lead-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.12s;
+}
+
+.add-lead-btn:hover {
+  background: var(--accent-hover);
+}
+
+/* Loading / error state */
+.leads-section__state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 32px 16px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.leads-section__state--error {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: #fca5a5;
+}
+
+/* Spinner */
+.leads-section__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

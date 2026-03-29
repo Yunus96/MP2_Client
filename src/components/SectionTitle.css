@@ -1,0 +1,22 @@
+/* src/components/SectionTitle.css */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.section-title__text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.section-title__line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}

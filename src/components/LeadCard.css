@@ -1,0 +1,142 @@
+/* src/components/LeadCard.css */
+
+.lead-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.lead-card:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: #d1d5db;
+}
+
+/* Subtle left accent line per status */
+.lead-card--new       { border-left: 3px solid #6b7280; }
+.lead-card--contacted { border-left: 3px solid var(--gold); }
+.lead-card--qualified { border-left: 3px solid var(--green); }
+
+/* Header row */
+.lead-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.lead-card__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: var(--ink);
+}
+
+.lead-card__avatar--new       { background: #4b5563; }
+.lead-card__avatar--contacted { background: var(--gold); }
+.lead-card__avatar--qualified { background: var(--green); }
+
+/* Status chip */
+.lead-card__chip {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+}
+
+.lead-card__chip--new       { background: var(--border-light); color: var(--ink-muted);  border-color: var(--border); }
+.lead-card__chip--contacted { background: var(--gold-bg);      color: var(--gold); }
+.lead-card__chip--qualified { background: var(--green-bg);     color: var(--green); }
+
+/* Name & company */
+.lead-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+
+.lead-card__company {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+
+/* Contact details */
+.lead-card__contact {
+  font-size: 11px;
+  color: var(--ink-muted);
+  line-height: 1.8;
+}
+
+/* Value row */
+.lead-card__value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-light);
+}
+
+.lead-card__value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Progress bar */
+.lead-card__progress-track {
+  width: 56px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.lead-card__progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.lead-card__progress-fill--new       { background: #9ca3af; }
+.lead-card__progress-fill--contacted { background: var(--gold); }
+.lead-card__progress-fill--qualified { background: var(--green); }
+
+/* Proposal Sent status */
+.lead-card--proposal      { border-left: 3px solid var(--blue); }
+.lead-card__avatar--proposal { background: var(--blue); }
+.lead-card__chip--proposal   { background: var(--blue-bg); color: var(--blue); }
+.lead-card__progress-fill--proposal { background: var(--blue); }
+
+/* Tags */
+.lead-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px;
+}
+
+.lead-card__tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background: var(--border-light);
+  color: var(--ink-muted);
+  border: 1px solid var(--border);
+}

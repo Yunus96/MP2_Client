@@ -1,0 +1,27 @@
+/* src/App.css */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app__body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.app__main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--bg);
+}
+
+.app__main::-webkit-scrollbar        { width: 4px; }
+.app__main::-webkit-scrollbar-track  { background: transparent; }
+.app__main::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 4px; }
