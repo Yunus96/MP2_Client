@@ -18,13 +18,10 @@ export default function LeadManagement() {
     editDraft,
     isSaving,
     saveError,
-    commentText,
-    setCommentText,
     startEdit,
     cancelEdit,
     savEdit,
     updateDraft,
-    submitComment,
   } = useLeadDetail(leadId); // pass string directly — no Number() conversion
 
   /* ── Loading state ── */
@@ -78,12 +75,8 @@ export default function LeadManagement() {
         onUpdateDraft={updateDraft}
       />
 
-      <CommentsSection
-        comments={lead.comments || []}
-        commentText={commentText}
-        onTextChange={setCommentText}
-        onSubmit={submitComment}
-      />
+      {/* CommentsSection is self-contained — it fetches its own data using leadId */}
+      <CommentsSection leadId={leadId} />
 
     </div>
   );

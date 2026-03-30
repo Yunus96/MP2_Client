@@ -161,3 +161,77 @@
   display: flex;
   justify-content: flex-end;
 }
+
+/* ── Loading / error state ── */
+.comments__state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 20px;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+.comments__state--error {
+  color: var(--red);
+}
+
+.comments__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--border);
+  border-top-color: var(--ink);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── Author selector ── */
+.comments__form-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.comments__author-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
+}
+
+.comments__author-select {
+  padding: 5px 28px 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: var(--surface);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b7280'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: border-color 0.12s;
+}
+
+.comments__author-select:focus {
+  border-color: var(--ink);
+}
+
+.comments__author-loading {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+/* ── Submit error ── */
+.comments__submit-error {
+  font-size: 12px;
+  color: var(--red);
+  margin-right: auto;
+}

@@ -211,7 +211,9 @@ export default function Reports() {
             { label: `Closed (${closedCount})`,        color: "#16a34a" },
           ]}
         >
-          <Doughnut data={pipelineChartData} options={doughnutOptions} />
+          <div style={{ maxWidth: 180, margin: "0 auto" }}>
+            <Doughnut data={pipelineChartData} options={doughnutOptions} />
+          </div>
         </ChartCard>
 
         {/* Chart 3 — Status distribution */}
@@ -223,7 +225,9 @@ export default function Reports() {
             color: STATUS_COLORS[s.status] ?? "#9ca3af",
           }))}
         >
-          <Doughnut data={statusChartData} options={doughnutOptions} />
+          <div style={{ maxWidth: 180, margin: "0 auto" }}>
+            <Doughnut data={statusChartData} options={doughnutOptions} />
+          </div>
         </ChartCard>
 
       </div>
@@ -233,7 +237,7 @@ export default function Reports() {
         title="Leads by Sales Agent"
         sub="total assigned vs closed"
       >
-        <div style={{ height: 260 }}>
+        <div style={{ height: 200 }}>
           <Bar data={agentChartData} options={barOptions} />
         </div>
       </ChartCard>

@@ -22,4 +22,11 @@ export const leadsApi = {
 
   // DELETE /api/leads/:id — delete a lead
   delete: (id) => apiClient.delete(`/leads/${id}`),
+
+    // GET /api/leads/:id/comments — fetch all comments for a lead
+  getComments: (leadId) => apiClient.get(`/leads/${leadId}/comments`),
+ 
+  // POST /api/leads/:id/comments — add a comment
+  // Body: { commentText: string, author: string (agent ID) }
+  addComment: (leadId, body) => apiClient.post(`/leads/${leadId}/comments`, body)
 };

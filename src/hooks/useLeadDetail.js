@@ -10,7 +10,6 @@ export function useLeadDetail(leadId) {
   const [editDraft, setEditDraft]   = useState(null);
   const [isSaving, setIsSaving]     = useState(false);
   const [saveError, setSaveError]   = useState(null);
-  const [commentText, setCommentText] = useState("");
 
   // ── Fetch lead on mount (or when leadId changes) ────────────
   useEffect(() => {
@@ -81,23 +80,7 @@ export function useLeadDetail(leadId) {
     }
   }
 
-  // ── Comments ────────────────────────────────────────────────
-  function submitComment() {
-    const text = commentText.trim();
-    if (!text) return;
-    const newComment = {
-      id: Date.now(),
-      author: "Riya Kumar",
-      avatar: "RK",
-      date: new Date().toISOString(),
-      text,
-    };
-    setLead((prev) => ({
-      ...prev,
-      comments: [...(prev.comments || []), newComment],
-    }));
-    setCommentText("");
-  }
+  // ── Comments are now handled by useComments hook in CommentsSection ──
 
   return {
     lead,
@@ -107,12 +90,9 @@ export function useLeadDetail(leadId) {
     editDraft,
     isSaving,
     saveError,
-    commentText,
-    setCommentText,
     startEdit,
     cancelEdit,
     savEdit,
     updateDraft,
-    submitComment,
   };
 }
