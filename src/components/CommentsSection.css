@@ -235,3 +235,67 @@
   color: var(--red);
   margin-right: auto;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — max-width: 640px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* ── Header ── */
+  .comments__header {
+    padding: 12px 14px;
+  }
+
+  /* ── Comment rows: tighter padding ── */
+  .comment {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  /* ── Meta: stack author + date on very small screens ── */
+  .comment__meta {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .comment__date {
+    width: 100%;   /* pushes date onto its own line */
+  }
+
+  /* ── Form ── */
+  .comments__form {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  /* ── Author selector: stack label above select ── */
+  .comments__form-author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .comments__author-select {
+    width: 100%;
+  }
+
+  /* ── Actions: full-width submit button ── */
+  .comments__form-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .comments__form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .comments__submit-error {
+    margin-right: 0;
+  }
+
+  /* ── Reduce max-height so form is always visible without scrolling ── */
+  .comments__list {
+    max-height: 220px;
+  }
+}

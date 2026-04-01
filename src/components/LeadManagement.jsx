@@ -58,7 +58,7 @@ export default function LeadManagement() {
   return (
     <div className="lead-mgmt">
 
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <div className="lead-mgmt__topbar">
         <button className="btn btn--ghost" onClick={() => navigate(-1)}>← Back</button>
         <SectionTitle>{lead.name} — Lead Details</SectionTitle>
       </div>

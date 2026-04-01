@@ -61,3 +61,28 @@
 
 .status-card__trend--up   { color: var(--green); }
 .status-card__trend--down { color: var(--red); }
+
+/* ═══════════════════════════════════════════════════════════
+   TABLET — max-width: 768px  (3 cols → 1 col, cards horizontal)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .status-panel__grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* Tighter padding on smaller screens */
+  .status-card {
+    padding: 14px 16px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WIDE MOBILE — 480px–768px  (show 2 side by side if space)
+   ═══════════════════════════════════════════════════════════ */
+@media (min-width: 480px) and (max-width: 768px) {
+  .status-panel__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
