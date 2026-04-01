@@ -80,3 +80,54 @@ a.header__brand {
   text-decoration: none;
   color: inherit;
 }
+
+/* ── Hamburger button — hidden on desktop ── */
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+.header__hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: background 0.12s;
+}
+
+.header__hamburger:hover .header__hamburger-line {
+  background: var(--ink-soft);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — max-width: 768px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Show hamburger */
+  .header__hamburger {
+    display: flex;
+  }
+
+  /* Brand no longer needs sidebar-width — just flex naturally */
+  .header__brand {
+    width: auto;
+    border-right: none;
+    flex: 1;
+  }
+
+  /* Hide date on mobile — saves space */
+  .header__date {
+    display: none;
+  }
+}

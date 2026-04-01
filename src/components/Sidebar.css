@@ -1,5 +1,6 @@
 /* src/components/Sidebar.css */
 
+/* ── Desktop sidebar ── */
 .sidebar {
   width: var(--sidebar-width);
   flex-shrink: 0;
@@ -30,10 +31,8 @@
   font-size: 13px;
   font-weight: 400;
   color: var(--ink-soft);
-  border-radius: 0;
   transition: background 0.1s, color 0.1s;
   border-left: 2px solid transparent;
-  margin: 0 0;
 }
 
 .sidebar__item:hover {
@@ -86,4 +85,87 @@ a.sidebar__item {
   text-decoration: none;
   color: inherit;
   display: flex;
+}
+
+/* Close button — hidden on desktop */
+.sidebar__close-btn {
+  display: none;
+}
+
+/* Backdrop — hidden on desktop */
+.sidebar__backdrop {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — max-width: 768px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Sidebar slides in from the left as a fixed overlay */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 200;
+    width: 260px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: none;
+    /* Keep padding-top for the close button */
+    padding-top: 0;
+  }
+
+  /* Slide in when open */
+  .sidebar--open {
+    transform: translateX(0);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.18);
+  }
+
+  /* Close button — visible on mobile */
+  .sidebar__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 14px 16px;
+    background: none;
+    border: none;
+    color: var(--ink-ghost);
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: color 0.12s;
+  }
+
+  .sidebar__close-btn:hover {
+    color: var(--ink);
+  }
+
+  /* Backdrop — full screen dark overlay behind the sidebar */
+  .sidebar__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 199;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.2s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Larger tap targets on mobile */
+  .sidebar__item {
+    padding: 11px 16px;
+    font-size: 14px;
+  }
+
+  .sidebar__icon {
+    font-size: 16px;
+    width: 22px;
+  }
 }
