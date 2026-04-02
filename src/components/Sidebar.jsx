@@ -9,8 +9,8 @@ const NAV_SECTIONS = [
     items: [
       { label: "Dashboard", icon: "🏠", path: "/dashboard" },
       { label: "Leads",     icon: "👥", path: "/leads",        badge: 10 },
-      { label: "By Status", icon: "🗂",  path: "/leads/status"            },
-      { label: "Sales",     icon: "📈", path: "/sales",        badge: 3  },
+      //{ label: "By Status", icon: "🗂",  path: "/leads/status"            },
+      //{ label: "Sales",     icon: "📈", path: "/sales",        badge: 3  },
       { label: "Agents",    icon: "🧑‍💼", path: "/agents"                  },
     ],
   },
@@ -20,12 +20,12 @@ const NAV_SECTIONS = [
       { label: "Reports", icon: "📊", path: "/reports" },
     ],
   },
-  {
+  /*{
     label: "Account",
     items: [
       { label: "Settings", icon: "⚙️", path: "/settings" },
     ],
-  },
+  },*/
 ];
 
 export default function Sidebar() {

@@ -140,3 +140,87 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TABLET — max-width: 768px  (4-col stats → 2-col, charts stack)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .reports {
+    gap: 14px;
+  }
+
+  /* 4 stat cards → 2×2 grid */
+  .reports__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Smaller stat values on tablet */
+  .report-stat__value {
+    font-size: 24px;
+  }
+
+  .report-stat {
+    padding: 14px 16px;
+  }
+
+  /* Two doughnut charts → stack vertically */
+  .reports__charts {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Doughnut max-width: let it breathe a bit more */
+  .chart-card__body {
+    padding: 14px 8px 6px;
+  }
+
+  /* Bar chart: reduce height on tablet */
+  .chart-card__body > div[style] {
+    height: 180px !important;
+  }
+
+  /* Chart header: tighter padding */
+  .chart-card__header {
+    padding: 12px 16px;
+  }
+
+  /* Legend: tighter padding */
+  .chart-legend {
+    padding: 6px 16px 12px;
+    gap: 8px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — max-width: 480px  (2-col stats → 1-col on tiny screens)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* 2×2 stat grid → single column */
+  .reports__stats {
+    grid-template-columns: 1fr 1fr;  /* keep 2-col — stat cards are narrow enough */
+    gap: 8px;
+  }
+
+  .report-stat {
+    padding: 12px 14px;
+  }
+
+  .report-stat__value {
+    font-size: 22px;
+  }
+
+  /* Bar chart: shorter on small phones */
+  .chart-card__body > div[style] {
+    height: 160px !important;
+  }
+
+  /* Chart header: wrap title + sub onto separate lines if needed */
+  .chart-card__header {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 10px 14px;
+  }
+}

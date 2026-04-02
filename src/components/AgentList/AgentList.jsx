@@ -44,7 +44,6 @@ export default function AgentList() {
           <div className="agent-table__th" />
           <div className="agent-table__th">Name</div>
           <div className="agent-table__th">Email</div>
-          <div className="agent-table__th">Agent ID</div>
         </div>
 
         {/* Body */}
@@ -86,11 +85,6 @@ export default function AgentList() {
 
               {/* Email */}
               <div className="agent-row__email">{agent.email ?? "—"}</div>
-
-              {/* ID — useful for debugging */}
-              <div className="agent-row__email" style={{ fontFamily: "monospace", fontSize: 11 }}>
-                {agent.id}
-              </div>
 
             </div>
           ))}
