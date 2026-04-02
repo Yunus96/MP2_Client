@@ -463,3 +463,220 @@
 }
 
 .stats__dot--proposal { background: var(--blue); }
+
+/* ── Tag input in modal ── */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: #fff;
+}
+
+.tag-pill__remove {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.12s;
+}
+
+.tag-pill__remove:hover {
+  color: #fff;
+}
+
+.tag-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag-input-row .form-input {
+  flex: 1;
+}
+
+/* Loading / error state for agent select */
+.form-input--loading,
+.form-input--error {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--ink-muted);
+  background: var(--border-light);
+}
+
+.form-input--error {
+  color: var(--red);
+  background: var(--red-bg);
+  border-color: #fca5a5;
+}
+
+/* Submit error in modal footer */
+.modal__error {
+  font-size: 12px;
+  color: var(--red);
+  margin-right: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABLET — max-width: 768px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .lead-list {
+    gap: 12px;
+  }
+
+  /* Toolbar: allow full wrap, tighter padding */
+  .lead-list__toolbar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  /* Hide the divider between filter and sort groups on mobile */
+  .toolbar__divider {
+    display: none;
+  }
+
+  /* spacer no longer needed — button wraps naturally */
+  .toolbar__spacer {
+    display: none;
+  }
+
+  /* Add Lead button becomes full width at the bottom of toolbar */
+  .lead-list__toolbar .btn--primary {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  /* Stats pills: allow wrap */
+  .lead-list__stats {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* ── Table: hide header row — labels move into each cell via data-label ── */
+  .lead-table__head {
+    display: none;
+  }
+
+  /* ── Rows become vertical cards ── */
+  .lead-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .lead-row:last-child {
+    border-bottom: none;
+  }
+
+  /* Each cell becomes a labelled row using data-label */
+  .lead-row > * {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 16px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 13px;
+  }
+
+  .lead-row > *:last-child {
+    border-bottom: none;
+  }
+
+  /* Show the data-label as a small grey prefix */
+  .lead-row > [data-label]::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-ghost);
+    margin-right: auto;
+    flex-shrink: 0;
+    padding-right: 12px;
+  }
+
+  /* Identity cell: keep avatar + name left-aligned, no label prefix */
+  .lead-row__identity {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-light);
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  /* Identity cell has no data-label so override the ::before */
+  .lead-row__identity::before {
+    display: none;
+  }
+
+  /* Action cell: align chip to the right naturally */
+  .lead-row__action {
+    justify-content: space-between;
+  }
+
+  /* Name wrapping is fine on mobile */
+  .lead-row__name,
+  .lead-row__company {
+    white-space: normal;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE — max-width: 480px
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* Modal: full screen on very small phones */
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: var(--radius) var(--radius) 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .modal-overlay {
+    align-items: flex-end;
+  }
+
+  /* Modal body: single column form fields */
+  .modal__row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal__footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal__error {
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
+}

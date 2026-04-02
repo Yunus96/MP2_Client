@@ -37,7 +37,6 @@ export default function LeadList() {
     setSortBy((prev) => (prev === key ? "none" : key));
   }
 
-  // Count per status from currently filtered leads
   const statusCounts = {};
   leads.forEach((l) => {
     statusCounts[l.status] = (statusCounts[l.status] || 0) + 1;
@@ -56,7 +55,7 @@ export default function LeadList() {
         )}
       </div>
 
-      {/* Status summary pills — built from real API data */}
+      {/* Status summary pills */}
       <div className="lead-list__stats">
         {Object.entries({ New: "new", Contacted: "contacted", "Proposal Sent": "proposal", Qualified: "qualified", Closed: "closed" }).map(([label, key]) => (
           <span key={label} className="stats__pill">
@@ -68,8 +67,6 @@ export default function LeadList() {
 
       {/* Toolbar */}
       <div className="lead-list__toolbar">
-
-        {/* Filter: Status */}
         <div className="toolbar__group">
           <span className="toolbar__label">Status</span>
           <select
@@ -82,7 +79,6 @@ export default function LeadList() {
           </select>
         </div>
 
-        {/* Filter: Agent — built from real API data (salesAgent.name) */}
         <div className="toolbar__group">
           <span className="toolbar__label">Agent</span>
           <select
@@ -97,12 +93,11 @@ export default function LeadList() {
 
         <div className="toolbar__divider" />
 
-        {/* Sort */}
         <div className="toolbar__group">
           <span className="toolbar__label">Sort</span>
           {[
             { key: "priority",    label: "Priority"      },
-            { key: "timeToClose", label: "Days to Close" }, // API field is timeToClose
+            { key: "timeToClose", label: "Days to Close" },
             { key: "name",        label: "Name"          },
           ].map(({ key, label }) => (
             <button
@@ -123,6 +118,8 @@ export default function LeadList() {
 
       {/* Table */}
       <div className="lead-table">
+
+        {/* Header row — hidden on mobile, visible on desktop */}
         <div className="lead-table__head">
           <div className="lead-table__th">Lead</div>
           <div className="lead-table__th">Status</div>
@@ -134,7 +131,6 @@ export default function LeadList() {
 
         <div className="lead-table__body">
 
-          {/* Loading state */}
           {isLoading && (
             <div className="lead-table__state">
               <div className="lead-table__spinner" />
@@ -142,19 +138,16 @@ export default function LeadList() {
             </div>
           )}
 
-          {/* Error state */}
           {!isLoading && error && (
             <div className="lead-table__state lead-table__state--error">
               ⚠ Failed to load leads: {error}
             </div>
           )}
 
-          {/* Empty state */}
           {!isLoading && !error && leads.length === 0 && (
             <div className="lead-table__empty">No leads match your filters.</div>
           )}
 
-          {/* Rows */}
           {!isLoading && !error && leads.map((lead) => {
             const sk = STATUS_KEY[lead.status]     || "new";
             const pk = PRIORITY_KEY[lead.priority] || "low";
@@ -164,36 +157,35 @@ export default function LeadList() {
                 className="lead-row"
                 onClick={() => navigate(`/leads/${lead.id}`)}
               >
-                {/* Lead name — API: lead.name */}
+                {/* No data-label — identity cell has its own layout */}
                 <div className="lead-row__identity">
                   <div className={`lead-row__avatar lead-row__avatar--${sk}`}>
                     {initials(lead.name)}
                   </div>
                   <div>
                     <div className="lead-row__name">{lead.name}</div>
-                    {/* API has no company field — show source instead */}
                     <div className="lead-row__company">{lead.source}</div>
                   </div>
                 </div>
 
-                {/* Status — API: lead.status */}
-                <div>
+                {/* data-label shown on mobile as the field label */}
+                <div data-label="Status">
                   <span className={`row-badge row-badge--${sk}`}>{lead.status}</span>
                 </div>
 
-                {/* Agent — API: lead.salesAgent.name (nested object) */}
-                <div className="lead-row__cell">
+                <div className="lead-row__cell" data-label="Agent">
                   {lead.salesAgent?.name ?? "—"}
                 </div>
 
-                {/* Priority — API: lead.priority */}
-                <div className={`priority-text--${pk}`}>{lead.priority}</div>
+                <div className={`priority-text--${pk}`} data-label="Priority">
+                  {lead.priority}
+                </div>
 
-                {/* Source — API: lead.source */}
-                <div className="lead-row__cell">{lead.source}</div>
+                <div className="lead-row__cell" data-label="Source">
+                  {lead.source}
+                </div>
 
-                {/* Time to close — API: lead.timeToClose (was daysToClose in mock) */}
-                <div className="lead-row__action">
+                <div className="lead-row__action" data-label="Closes">
                   <DaysChip days={lead.timeToClose} />
                 </div>
               </div>
