@@ -8,7 +8,7 @@ const NAV_SECTIONS = [
     label: "Activity",
     items: [
       { label: "Dashboard", icon: "🏠", path: "/dashboard" },
-      { label: "Leads",     icon: "👥", path: "/leads",        badge: 10 },
+      { label: "Leads",     icon: "👥", path: "/leads" },
       //{ label: "By Status", icon: "🗂",  path: "/leads/status"            },
       //{ label: "Sales",     icon: "📈", path: "/sales",        badge: 3  },
       { label: "Agents",    icon: "🧑‍💼", path: "/agents"                  },
