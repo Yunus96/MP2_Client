@@ -1,6 +1,5 @@
 // src/api/client.js
 // Central API client — all fetch calls go through here.
-// Add auth headers, base URL, and error handling in one place.
 
 const BASE_URL = "https://mp-2-server.vercel.app/api";
 

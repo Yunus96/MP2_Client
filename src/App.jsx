@@ -11,6 +11,7 @@ import LeadList       from "./components/LeadList/LeadList";
 import NotFound       from "./components/NotFound/NotFound";
 import AgentList      from "./components/AgentList/AgentList";
 import Reports        from "./components/Reports/Reports";
+import Settings from "./components/Settings/Settings";
 
 function Placeholder({ label }) {
   return (
@@ -55,7 +56,7 @@ export default function App() {
             <Route path="/sales"    element={<Placeholder label="Sales" />} />
             <Route path="/agents"   element={<AgentList />} />
             <Route path="/reports"  element={<Reports />} />
-            <Route path="/settings" element={<Placeholder label="Settings" />} />
+            <Route path="/settings" element={<Settings />} />
 
             {/* 404 */}
             <Route path="*" element={<NotFound />} />

@@ -7,4 +7,7 @@ export const agentsApi = {
 
   // POST /api/agents — create a new agent
   create: (data) => apiClient.post("/agents", data),
+
+  // DELETE /api/agents/:id — delete an agent
+  delete: (id) => apiClient.delete(`/agents/${id}`),
 };
