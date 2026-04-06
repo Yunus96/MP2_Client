@@ -1,8 +1,11 @@
 // src/hooks/useLeadDetail.js
 import { useState, useEffect } from "react";
 import { leadsApi } from "../api/leads";
+import { useToast } from "../context/ToastContext";
 
 export function useLeadDetail(leadId) {
+  const { showToast } = useToast();
+
   const [lead, setLead]             = useState(null);
   const [isLoading, setIsLoading]   = useState(true);
   const [error, setError]           = useState(null);
@@ -73,8 +76,10 @@ export function useLeadDetail(leadId) {
       setLead(updated);
       setIsEditing(false);
       setEditDraft(null);
+      showToast("Lead updated successfully", "success");
     } catch (err) {
       setSaveError(err.message);
+      showToast("Failed to update lead", "error");
     } finally {
       setIsSaving(false);
     }

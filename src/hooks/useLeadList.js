@@ -2,10 +2,13 @@
 import { useState, useEffect, useMemo } from "react";
 import { leadsApi } from "../api/leads";
 import { agentsApi } from "../api/agents";
+import { useToast } from "../context/ToastContext.jsx";
 
 const PRIORITY_RANK = { High: 3, Medium: 2, Low: 1 };
 
 export function useLeadList() {
+  const { showToast } = useToast();
+
   const [leads, setLeads]               = useState([]);
   const [isLoading, setIsLoading]       = useState(true);
   const [error, setError]               = useState(null);
@@ -89,6 +92,7 @@ export function useLeadList() {
   function addLead(newLead) {
     setLeads((prev) => [newLead, ...prev]);
     setShowAddModal(false);
+    showToast(`"${newLead.name}" added successfully`, "success");
   }
 
   return {
