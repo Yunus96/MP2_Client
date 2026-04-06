@@ -2,8 +2,10 @@
 import { useState, useEffect } from "react";
 import { leadsApi }  from "../api/leads";
 import { agentsApi } from "../api/agents";
+import { useToast }  from "../context/ToastContext";
 
 export function useSettings() {
+  const { showToast } = useToast();
   const [leads, setLeads]       = useState([]);
   const [agents, setAgents]     = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -64,14 +66,17 @@ export function useSettings() {
       if (type === "lead") {
         await leadsApi.delete(id);
         setLeads((prev) => prev.filter((l) => l.id !== id));
+        showToast(`Leads deleted`, "success");
       } else {
         await agentsApi.delete(id);
         setAgents((prev) => prev.filter((a) => a.id !== id));
+        showToast(`Agent deleted`, "success");
       }
 
       setPendingDelete(null);
     } catch (err) {
       setDeleteError(err.message);
+      showToast(`Error deleting`, "error");
     } finally {
       setIsDeleting(false);
     }

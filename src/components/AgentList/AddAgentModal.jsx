@@ -2,10 +2,13 @@
 // CSS imported via AgentList.css (loaded in AgentList.jsx)
 import { useState } from "react";
 import { agentsApi } from "../../api/agents";
+import { useToast }  from "../../context/ToastContext";
+
 
 const EMPTY = { name: "", email: "" };
 
 export default function AddAgentModal({ onClose, onAdd }) {
+  const { showToast } = useToast();
   const [form, setForm]               = useState(EMPTY);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError]   = useState(null);
@@ -28,8 +31,10 @@ export default function AddAgentModal({ onClose, onAdd }) {
 
       const created = await agentsApi.create(body);
       onAdd(created);
+      showToast(`Agent added successfully`, "success");
     } catch (err) {
       setSubmitError(err.message);
+      showToast(`Failed to add agent`, "error");
     } finally {
       setIsSubmitting(false);
     }

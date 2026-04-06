@@ -1,13 +1,10 @@
-// src/hooks/useComments.js
-// Owns all comment state for a single lead:
-//   - Fetches comments from GET /leads/:leadId/comments
-//   - Fetches agents from GET /agents (for author dropdown)
-//   - Posts new comment to POST /leads/:leadId/comments
 import { useState, useEffect } from "react";
 import { leadsApi } from "../api/leads";
 import { agentsApi } from "../api/agents";
+import { useToast }  from "../context/ToastContext";
 
 export function useComments(leadId) {
+  const { showToast } = useToast();
   const [comments, setComments]       = useState([]);
   const [isLoading, setIsLoading]     = useState(true);
   const [error, setError]             = useState(null);
@@ -86,8 +83,10 @@ export function useComments(leadId) {
       // Append server response to local list
       setComments((prev) => [...prev, newComment]);
       setCommentText("");
+      showToast("Comment submitted successfully", "success");
     } catch (err) {
       setSubmitError(err.message);
+      showToast("Error submitting comment", "error");
     } finally {
       setIsSubmitting(false);
     }

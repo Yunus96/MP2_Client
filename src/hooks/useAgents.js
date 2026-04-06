@@ -1,8 +1,10 @@
 // src/hooks/useAgents.js
 import { useState, useEffect } from "react";
 import { agentsApi } from "../api/agents";
+import { useToast }  from "../context/ToastContext";
 
 export function useAgents() {
+  const { showToast } = useToast();
   const [agents, setAgents]       = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError]         = useState(null);
@@ -31,6 +33,7 @@ export function useAgents() {
   function addAgent(newAgent) {
     setAgents((prev) => [newAgent, ...prev]);
     setShowAddModal(false);
+    showToast("Agent added successfully", "success");
   }
 
   return { agents, isLoading, error, showAddModal, setShowAddModal, addAgent };

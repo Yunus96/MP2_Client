@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SOURCES, STATUSES, PRIORITIES } from "../../data/leads";
 import { leadsApi } from "../../api/leads";
 import { useAgents } from "../../hooks/useAgents";
+import { useToast }  from "../../context/ToastContext";
 
 const EMPTY = {
   name:        "",
@@ -16,6 +17,8 @@ const EMPTY = {
 };
 
 export default function AddLeadModal({ onClose, onAdd }) {
+  const { showToast } = useToast();
+
   const [form, setForm]       = useState(EMPTY);
   const [tagInput, setTagInput] = useState("");   // controlled input for adding tags
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -75,8 +78,10 @@ export default function AddLeadModal({ onClose, onAdd }) {
 
       // Pass the server response back up so LeadList can prepend it
       onAdd(created);
+      showToast("Lead added successfully", "success");
     } catch (err) {
       setSubmitError(err.message);
+      showToast("Error adding lead", "error");
     } finally {
       setIsSubmitting(false);
     }
