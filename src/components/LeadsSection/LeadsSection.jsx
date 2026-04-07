@@ -1,4 +1,3 @@
-// src/components/LeadsSection.jsx
 import "./LeadsSection.css";
 import { useNavigate } from "react-router-dom";
 import LeadCard     from "../LeadCard/LeadCard";

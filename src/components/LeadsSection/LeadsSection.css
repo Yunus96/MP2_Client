@@ -116,3 +116,36 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TABLET — max-width: 768px  (3 cols → 2 cols)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .leads-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Add Lead button full width */
+  .filters-row__spacer {
+    display: none;
+  }
+
+  .add-lead-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  .filters-row {
+    gap: 6px;
+  }
+}
+
+/* MOBILE — max-width: 480px  (2 cols → 1 col) */
+@media (max-width: 480px) {
+  .leads-section__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
