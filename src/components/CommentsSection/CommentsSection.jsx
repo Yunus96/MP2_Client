@@ -1,7 +1,6 @@
-// src/components/CommentsSection.jsx
 import "./CommentsSection.css";
-import "./LeadManagement.css"; // re-use .btn, .btn__spinner
-import { useComments } from "../hooks/useComments";
+import "../LeadManagement/LeadManagement.css";
+import { useComments } from "../../hooks/useComments";
 
 function formatDate(iso) {
   const d = new Date(iso);

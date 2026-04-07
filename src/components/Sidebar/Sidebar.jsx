@@ -1,7 +1,7 @@
 // src/components/Sidebar.jsx
 import "./Sidebar.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useSidebar } from "../context/Sidebarcontext";
+import { useSidebar } from "../../context/Sidebarcontext";
 
 const NAV_SECTIONS = [
   {

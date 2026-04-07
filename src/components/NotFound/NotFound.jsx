@@ -1,6 +1,5 @@
-// src/components/NotFound.jsx
 import { useNavigate } from "react-router-dom";
-import "../LeadManagement.css"; // re-use .btn
+import "../LeadManagement/LeadManagement.css";
 
 export default function NotFound() {
   const navigate = useNavigate();

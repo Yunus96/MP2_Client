@@ -11,7 +11,7 @@ import {
   Legend,
 } from "chart.js";
 import { Doughnut, Bar } from "react-chartjs-2";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../SectionTitle/SectionTitle";
 import { useReports } from "../../hooks/useReports";
 
 // Register only the Chart.js components we use — tree-shakeable

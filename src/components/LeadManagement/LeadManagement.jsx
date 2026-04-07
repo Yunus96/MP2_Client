@@ -1,10 +1,9 @@
-// src/components/LeadManagement.jsx
 import { useParams, useNavigate } from "react-router-dom";
 import "./LeadManagement.css";
-import LeadDetail      from "./LeadDetail";
-import CommentsSection from "./CommentsSection";
-import SectionTitle    from "./SectionTitle";
-import { useLeadDetail } from "../hooks/useLeadDetail";
+import LeadDetail      from "../LeadDetail/LeadDetail";
+import CommentsSection from "../CommentsSection/CommentsSection";
+import SectionTitle    from "../SectionTitle/SectionTitle";
+import { useLeadDetail } from "../../hooks/useLeadDetail";
 
 export default function LeadManagement() {
   const { leadId } = useParams();  // string ID from URL e.g. "69bcd6af0817723289fc9ecd"

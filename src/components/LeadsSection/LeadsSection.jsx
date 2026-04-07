@@ -1,9 +1,9 @@
 // src/components/LeadsSection.jsx
 import "./LeadsSection.css";
 import { useNavigate } from "react-router-dom";
-import LeadCard     from "./LeadCard";
-import SectionTitle from "./SectionTitle";
-import { useLeads } from "../hooks/useLeads";
+import LeadCard     from "../LeadCard/LeadCard";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import { useLeads } from "../../hooks/useLeads";
 
 export default function LeadsSection() {
   const navigate = useNavigate();

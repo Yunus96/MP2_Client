@@ -1,7 +1,6 @@
-// src/components/Settings.jsx
 import "./Settings.css";
-import "../LeadManagement.css"; // re-use .btn, .btn__spinner
-import SectionTitle from "../SectionTitle";
+import "../LeadManagement/LeadManagement.css";
+import SectionTitle from "../SectionTitle/SectionTitle";
 import { useSettings } from "../../hooks/useSettings";
 
 // ── Helpers ──────────────────────────────────────────────────

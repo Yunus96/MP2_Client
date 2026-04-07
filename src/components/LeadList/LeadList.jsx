@@ -1,8 +1,8 @@
 // src/components/LeadList.jsx
 import "./LeadList.css";
-import "../LeadManagement.css";
+import "../LeadManagement/LeadManagement.css";
 import { useNavigate } from "react-router-dom";
-import SectionTitle from "../SectionTitle";
+import SectionTitle from "../SectionTitle/SectionTitle";
 import AddLeadModal from "../AddLeadModal/AddLeadModal";
 import { useLeadList } from "../../hooks/useLeadList";
 import { STATUSES } from "../../data/leads";

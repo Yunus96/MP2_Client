@@ -1,7 +1,6 @@
-// src/components/AgentList.jsx
 import "./AgentList.css";
-import "../LeadManagement.css"; // re-usse .btn, .form-field, .form-label, .form-input
-import SectionTitle    from "../SectionTitle";
+import "../LeadManagement/LeadManagement.css";
+import SectionTitle    from "../SectionTitle/SectionTitle";
 import AddAgentModal   from "./AddAgentModal";
 import { useAgents } from "../../hooks/useAgents";
 

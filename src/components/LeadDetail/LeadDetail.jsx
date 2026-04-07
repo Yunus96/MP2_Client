@@ -1,6 +1,5 @@
-// src/components/LeadDetail.jsx
-import "./LeadManagement.css";
-import { SOURCES, STATUSES, PRIORITIES } from "../data/leads";
+import "../LeadManagement/LeadManagement.css";
+import { SOURCES, STATUSES, PRIORITIES } from "../../data/leads";
 
 // ── Helpers ─────────────────────────────────────────────────
 const initials = (name) =>

@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 
-import Header         from "./components/Header";
-import Sidebar        from "./components/Sidebar";
-import LeadsSection   from "./components/LeadsSection";
-import StatusPanel    from "./components/StatusPanel";
-import LeadManagement from "./components/LeadManagement";
+import Header         from "./components/Header/Header";
+import Sidebar        from "./components/Sidebar/Sidebar";
+import LeadsSection   from "./components/LeadsSection/LeadsSection";
+import StatusPanel    from "./components/StatusPanel/StatusPanel";
+import LeadManagement from "./components/LeadManagement/LeadManagement";
 import LeadList       from "./components/LeadList/LeadList";
 import NotFound       from "./components/NotFound/NotFound";
 import AgentList      from "./components/AgentList/AgentList";

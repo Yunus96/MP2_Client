@@ -1,7 +1,7 @@
 // src/components/StatusPanel.jsx
 import "./StatusPanel.css";
-import SectionTitle from "./SectionTitle";
-import { STATUS_SUMMARY } from "../data/leads";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import { STATUS_SUMMARY } from "../../data/leads";
 
 const STATUS_META = {
   New:       { icon: "🔥", key: "new"       },

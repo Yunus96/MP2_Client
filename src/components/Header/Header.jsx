@@ -1,7 +1,6 @@
-// src/components/Header.jsx
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { useSidebar } from "../context/Sidebarcontext";
+import { useSidebar } from "../../context/Sidebarcontext";
 
 export default function Header() {
   const { toggle } = useSidebar();
