@@ -140,7 +140,7 @@ export default function LeadList() {
 
           {!isLoading && error && (
             <div className="lead-table__state lead-table__state--error">
-              ⚠ Failed to load leads: {error}
+              ⚠ Failed to load leads
             </div>
           )}
 

@@ -542,59 +542,76 @@
     gap: 12px;
   }
 
-  /* Toolbar: allow full wrap, tighter padding */
   .lead-list__toolbar {
     padding: 10px 12px;
     gap: 8px;
   }
 
-  /* Hide the divider between filter and sort groups on mobile */
-  .toolbar__divider {
-    display: none;
-  }
+  .toolbar__divider { display: none; }
+  .toolbar__spacer  { display: none; }
 
-  /* spacer no longer needed — button wraps naturally */
-  .toolbar__spacer {
-    display: none;
-  }
-
-  /* Add Lead button becomes full width at the bottom of toolbar */
   .lead-list__toolbar .btn--primary {
     width: 100%;
     justify-content: center;
     margin-top: 4px;
   }
 
-  /* Stats pills: allow wrap */
   .lead-list__stats {
     flex-wrap: wrap;
     gap: 6px;
   }
 
-  /* ── Table: hide header row — labels move into each cell via data-label ── */
+  /* Hide desktop table header */
   .lead-table__head {
     display: none;
   }
 
-  /* ── Rows become vertical cards ── */
+  /* Table container becomes transparent — cards define their own borders */
+  .lead-table {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Body: flex column with gap between cards */
+  .lead-table__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;       /* ← gap between each lead card */
+  }
+
+  /* Each row becomes a standalone card */
   .lead-row {
     display: flex;
     flex-direction: column;
     gap: 0;
     padding: 0;
-    border-bottom: 1px solid var(--border);
+    margin: 0;
+    border: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); /* override last-child reset below */
+    border-radius: var(--radius);
+    background: var(--surface);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: box-shadow 0.15s;
   }
 
   .lead-row:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid var(--border); /* keep card border on last item */
   }
 
-  /* Each cell becomes a labelled row using data-label */
+  .lead-row:hover {
+    background: var(--surface);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.09);
+  }
+
+  /* Each cell: label + value row */
   .lead-row > * {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 9px 16px;
+    padding: 9px 14px;
     border-bottom: 1px solid var(--border-light);
     font-size: 13px;
   }
@@ -603,7 +620,7 @@
     border-bottom: none;
   }
 
-  /* Show the data-label as a small grey prefix */
+  /* data-label prefix */
   .lead-row > [data-label]::before {
     content: attr(data-label);
     font-size: 10px;
@@ -616,29 +633,21 @@
     padding-right: 12px;
   }
 
-  /* Identity cell: keep avatar + name left-aligned, no label prefix */
+  /* Identity cell: no label, avatar + name */
   .lead-row__identity {
-    padding: 12px 16px;
+    padding: 12px 14px;
     border-bottom: 1px solid var(--border-light);
     justify-content: flex-start;
     gap: 10px;
+    background: var(--bg);
   }
 
-  /* Identity cell has no data-label so override the ::before */
-  .lead-row__identity::before {
-    display: none;
-  }
+  .lead-row__identity::before { display: none; }
 
-  /* Action cell: align chip to the right naturally */
-  .lead-row__action {
-    justify-content: space-between;
-  }
+  .lead-row__action { justify-content: space-between; }
 
-  /* Name wrapping is fine on mobile */
   .lead-row__name,
-  .lead-row__company {
-    white-space: normal;
-  }
+  .lead-row__company { white-space: normal; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -646,7 +655,6 @@
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
 
-  /* Modal: full screen on very small phones */
   .modal {
     width: 100%;
     max-width: 100%;
@@ -657,18 +665,11 @@
     right: 0;
   }
 
-  .modal-overlay {
-    align-items: flex-end;
-  }
+  .modal-overlay { align-items: flex-end; }
 
-  /* Modal body: single column form fields */
-  .modal__row {
-    grid-template-columns: 1fr;
-  }
+  .modal__row { grid-template-columns: 1fr; }
 
-  .modal__footer {
-    flex-direction: column-reverse;
-  }
+  .modal__footer { flex-direction: column-reverse; }
 
   .modal__footer .btn {
     width: 100%;
