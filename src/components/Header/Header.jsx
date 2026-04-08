@@ -27,7 +27,16 @@ export default function Header() {
       </Link>
 
       <div className="header__right">
-        <span className="header__date">Mon, 23 March 2026</span>
+        <span className="header__date">
+            {
+              new Date().toLocaleDateString("en-GB", {
+                weekday: "short",
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })
+            }
+        </span>
         <div className="header__avatar">RK</div>
       </div>
     </header>
