@@ -158,13 +158,13 @@ export default function LeadDetail({
           </div>
         </div>
 
-        {/* id — read-only, useful for debugging / referencing */}
+        {/* id — read-only, useful for debugging / referencing 
         <div className="lead-detail__field">
           <div className="lead-detail__label">Lead ID</div>
           <div className="lead-detail__value lead-detail__value--mono">
             {lead.id}
           </div>
-        </div>
+        </div>*/}
 
       </div>
 
